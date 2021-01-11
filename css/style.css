@@ -1,13 +1,17 @@
-body {
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.body {
   margin: 0;
-  padding: 0 10% 0 10%;
+  padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-body .link {
-  color: blue;
-  text-decoration: none;
+.body__container {
+  padding: 0 10vw 0 10vw;
 }
 
 .header {
@@ -21,68 +25,160 @@ body .link {
   display: -ms-grid;
   display: grid;
       grid-template-areas: 'logo nav nav' 'logo nav nav' 'slider slider slider';
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1.5fr;
+      grid-template-columns: 1fr 1fr 1.5fr;
   -ms-grid-rows: (auto)[3];
       grid-template-rows: repeat(3, auto);
 }
 
-.header .header__logo {
+.header__logo {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: logo;
+  max-height: 70px;
 }
 
-.header .header__logo-left-img {
-  position: absolute;
-  top: 20px;
-}
-
-.header .header__logo-right-img {
-  position: absolute;
-  top: 25px;
-  left: 208px;
-}
-
-.header .header__logo-word-img {
-  position: absolute;
-  top: 20px;
-  left: 266px;
-}
-
-.header .header__list-wrapper {
+.header__list-wrapper {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: nav;
-  padding-left: 3em;
 }
 
-.header .main-list {
+.header__slider {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: slider;
+  top: 70px;
+  left: 0;
+  right: 0;
+}
+
+.list-wrapper {
+  position: relative;
+}
+
+.list-wrapper__main-list {
+  margin-left: 2em;
+}
+
+.main-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   text-decoration: none;
   list-style: none;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0;
 }
 
-.header .main-list .main-list__item {
+.main-list__item {
   position: relative;
 }
 
-.header .main-list img {
+.main-list__img {
   position: absolute;
-  left: -30px;
+  left: -.5em;
   max-height: 17;
 }
 
-.header .header__slider {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-area: slider;
+.main-list__link {
+  padding-left: 1.5em;
+}
+
+.main-navigation__main-list {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.slide__main-wrap {
+  background-image: url("https://media.radissonhotels.net/image/radisson-royal-hotel-st-petersburg/exteriorview/16256-114130-f62738286_3xl.jpg?impolicy=HomeHero");
+  background-color: rgba(0, 0, 22, 0.5);
+  padding-top: 110px;
+  padding-bottom: 110px;
+  background-size: cover;
+  background-blend-mode: luminosity;
+  padding-left: 10vw;
+}
+
+.slide__title {
+  color: blanchedalmond;
+  line-height: 1.5;
+  font-family: Merriweather;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 66px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 70px;
+}
+
+.slide__button {
+  width: 270px;
+  padding: 1.5em 2em;
+  background: #005FA3;
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}
+
+.button {
+  color: white;
+}
+
+.slick-list {
+  overflow: hidden;
+}
+
+.slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.slider-clients__item {
+  min-height: 200px;
+  background-image: url(https://visit-petersburg.ru/media/uploads/audioguide/43/43_cover.jpg);
+}
+
+.body__section-specializations {
+  margin-top: 450px;
+}
+
+.header .slick-arrow {
+  position: absolute;
+  top: 70%;
+}
+
+.slider {
+  position: absolute;
+}
+
+.slick-arrow {
+  position: absolute;
+  bottom: 20%;
+  right: 14%;
+  z-index: 10;
+}
+
+.slick-arrow.slick-prev {
+  right: 17%;
+}
+
+.slick-arrow.slick-prev::after {
+  content: '<';
+  border-top: black;
+  position: absolute;
 }

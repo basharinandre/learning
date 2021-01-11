@@ -1,17 +1,30 @@
-body{
+a{
+    color: black;
+    text-decoration: none;
+}
+.body{
     margin: 0;
-    padding: 0 10% 0 10%;
+    padding: 0;
     box-sizing: border-box;
-    .link{
-        color: blue;
-        text-decoration: none;
+    &__container{
+        padding: 0 10vw 0 10vw;
+    }
+    &__section-specializations{
+
+    }
+    &__section-about{
+
+    }
+    &__section-clients{
+
+    }
+    %__section-reviews{
+
+    }
+    &__footer{
+
     }
 }
-
-.header__logo{
-
-}
-
 //header
 .header{
     font-family: 'Lato', sans-serif;
@@ -25,51 +38,135 @@ body{
     grid-template-areas: 'logo nav nav'
                         'logo nav nav'
                         'slider slider slider';
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1.5fr;
     grid-template-rows: repeat(3, auto);
-    .header__logo{
+    &__logo{
         grid-area: logo;
-        // background-image: url(/img/logoLeft.png), url(/img/logoRight.png) ;
-        // background-size: contain;
-        // background-repeat: no-repeat;
+        max-height: 70px;
     }
-    .header__logo-left-img{
-        position: absolute;
-        top: 20px;
-    }
-    .header__logo-right-img{
-        position: absolute;
-        top: 25px;
-        left: 208px;
-    }
-    .header__logo-word-img{
-        position: absolute;
-        top: 20px;
-        left: 266px;
-    }
-    .header__list-wrapper{
+    &__list-wrapper{
         grid-area: nav;
-        padding-left: 3em;
-    }
-
-    .main-list{
-        display: flex;
-        text-decoration: none;
-        list-style: none;
-        
-        justify-content: space-around;
-        .main-list__item{
-            // justify-content: space-between;
-            position: relative;
-        }
-        img{
-            position: absolute;
-            left: -30px;
-            max-height: 17;
-        }
-    }
-    .header__slider{
+    }       
+    &__slider{
         grid-area: slider;
+        top: 70px;
+        left: 0;
+        right: 0;   
     }
+}
+.logo{
+    
+}
+.list-wrapper{
+    position: relative;
+    &__main-list{
+        margin-left: 2em;
+    }
+}    
+.main-list{
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0;
+    &__item{    
+        position: relative;
+    }
+    &__img{
+        position: absolute;
+        left: -.5em;
+        max-height: 17;
+    }
+    &__link{
+        padding-left: 1.5em ;
+    }
+    
+}
+.main-navigation{
+    &__main-list{
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+}
+.slide{
 
+    &__main-wrap{
+        background-image: url('https://media.radissonhotels.net/image/radisson-royal-hotel-st-petersburg/exteriorview/16256-114130-f62738286_3xl.jpg?impolicy=HomeHero');
+        background-color: rgba(0, 0, 22, 0.5);
+        padding-top: 110px;
+        padding-bottom: 110px;
+        background-size: cover;
+        background-blend-mode: luminosity;
+        padding-left: 10vw;
+    }
+    &__title{
+        color: blanchedalmond;
+        line-height: 1.5;
+        font-family: Merriweather;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 66px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-bottom: 70px;
+    }
+    &__button{
+        width: 270px;
+        padding: 1.5em 2em;
+        background: #005FA3;    
+        font-family: Lato;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: white;
+
+    }
+}
+.button{
+    color: white;
+}
+
+.slick-list{
+    overflow: hidden;
+}
+
+.slick-track{
+    display: flex;
+}
+
+.slider-clients__item{
+    min-height: 200px;
+    background-image: url(https://visit-petersburg.ru/media/uploads/audioguide/43/43_cover.jpg);
+}
+
+.body__section-specializations{
+    margin-top: 450px;
+}
+.header .slick-arrow{
+    position: absolute;
+    top: 70%;
+}
+
+.slider{
+    position: absolute;
+    
+}
+.slick-arrow{
+    position: absolute;
+    bottom: 20%;
+    right: 14%;
+    z-index: 10;
+}
+.slick-arrow.slick-prev{
+    right: 17%;
+}
+.slick-arrow.slick-prev::after{
+    content: '<';
+    border-top: black;
+    position: absolute;
 }
