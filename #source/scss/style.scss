@@ -46,7 +46,13 @@ a{
     }
     &__list-wrapper{
         grid-area: nav;
-    }       
+    }
+    &__main-list{
+        margin-left: 2em;
+    }
+    &__main-navigation{
+
+    }
     &__slider{
         grid-area: slider;
         top: 70px;
@@ -57,12 +63,6 @@ a{
 .logo{
     
 }
-.list-wrapper{
-    position: relative;
-    &__main-list{
-        margin-left: 2em;
-    }
-}    
 .main-list{
     display: flex;
     text-decoration: none;

@@ -47,6 +47,10 @@ a {
   grid-area: nav;
 }
 
+.header__main-list {
+  margin-left: 2em;
+}
+
 .header__slider {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
@@ -55,14 +59,6 @@ a {
   top: 70px;
   left: 0;
   right: 0;
-}
-
-.list-wrapper {
-  position: relative;
-}
-
-.list-wrapper__main-list {
-  margin-left: 2em;
 }
 
 .main-list {
