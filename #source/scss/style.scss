@@ -10,11 +10,12 @@ a{
         padding: 0 10vw 0 10vw;
     }
     &__section-specializations{
-        margin-top: 650px;
+        margin-top: 510px;
         margin-bottom: 40px;
+        background-color: #EBEBEB;
     }
     &__section-about{
-
+        display: flex;
     }
     &__section-clients{
 
@@ -225,6 +226,10 @@ a{
 .slick-dots li.slick-active button{
     opacity: initial;
 }
+.section-specializations{
+    padding: 0 0 50px 0;
+}
+
 .tagline{
     font-family: 'Lato', sans-serif;
     font-size: 24px;
@@ -234,7 +239,7 @@ a{
     letter-spacing: 0em;
     text-align: left;
     color: #BDBDBD;
-    ;
+    padding-top: 70px;
 }
 .caption{
     font-family: 'Merriweather';
@@ -257,7 +262,7 @@ a{
         background-image: url(/img/Rectangle.png);
         width: 20vw;
         height: 360px;
-        margin: 1vw;
+        margin: 0 2vw 2vw 0;
         flex-grow: 1;
         position: relative;
     }
@@ -279,6 +284,25 @@ a{
         padding: 0;
     }
   }
-//   .list-gallery__item+.list-gallery__item{
-//       margin: auto;
-//   } 
+.section-about{
+    &__wrapper{
+        flex-basis: 50%;
+        margin-right: 2vw;
+    }
+    &__list-gallery{
+        flex-basis: 48%;
+    }
+}
+.list-gallery{
+    // flex-wrap: wrap;
+
+    &__card{
+        width: 12vw;
+        flex-basis: 44%;
+        flex-grow: 1;
+        height: 240px;
+        background-color: #EBEBEB;
+        margin: 0 2vw 2vw 0;
+        // flex-grow: 1;
+    }
+}

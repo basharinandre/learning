@@ -96,7 +96,7 @@
             <p class="section-specializations__tagline tagline">наши услуги</p>
             <h2 class="section-specializations__caption caption">Мы специализируемся</h2>
             <div class="section-specializations__container container">
-                <ul class="box__list-gallery list-gallery">
+                <ul class="container__list-gallery list-gallery">
                     <li class="list-gallery__item">
                         <p class="list-gallery__paragraph">
                             Бухгалтерское обслуживание
@@ -133,18 +133,17 @@
         <section class="body__section-about section-about">
             <div class="section-about__wrapper">
                 <p class="section-about__tagline tagline">о нас</p>
-                <h2 class="section-about__caption caption">Компания ИвановПром</h2>
+                <h2 class="section-about__caption caption">Компания <br> <span class="caption__colored">ИвановПром</span></h2>
                 <p class="section-about__text">
-                    <!-- нет, я не забыл блок, мне кажется, он здесь не нужен -->
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Quod iure cum, ad dolor officia dicta fuga error aspernatur iusto laborum laudantium sint
                     molestias eveniet temporibus perspiciatis illum! Assumenda, nemo impedit.
                 </p>
             </div>
-            <div class="sectionAboutUs__cards cards">
+            <div class="section-about__list-gallery list-gallery">
                 <!-- насколько визуально правильно использовать классы, отличающиеся лишь одной буквой? -->
-                <div class="cards__card card">
-                    <span class="card__number">
+                <div class="list-gallery__card card">
+                    <span class="card__mark">
                         90
                     </span>
                     <p class="card__content">
@@ -154,8 +153,8 @@
                         Все кейсы
                     </a>
                 </div>
-                <div class="cards__card card">
-                    <span class="card__number">
+                <div class="list-gallery__card card">
+                    <span class="card__mark">
                         90
                     </span>
                     <p class="card__content">
@@ -165,8 +164,8 @@
                         Все кейсы
                     </a>
                 </div>
-                <div class="cards__card card">
-                    <span class="card__number">
+                <div class="list-gallery__card card">
+                    <span class="card__mark">
                         90
                     </span>
                     <p class="card__content">
@@ -176,8 +175,8 @@
                         Все кейсы
                     </a>
                 </div>
-                <div class="cards__card card">
-                    <span class="card__number">
+                <div class="list-gallery__card card">
+                    <span class="card__mark">
                         90
                     </span>
                     <p class="card__content">
@@ -209,14 +208,24 @@
             <p class="section-reviews__tagline tagline">Отзывы</p>
             <h2 class="section-reviews__caption caption">Ваши благодарности</h2>
             <div class="section-reviews__slider slider slider--third-js">
-                <div class="slider__slide">
+                <div class="slider__slide slide">
                     <p class="slide__text">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Labore fugiat praesentium ipsa similique odio accusamus maxime a consectetur
                         veritatis sint, corrupti pariatur ad eligendi quaerat nostrum sunt et inventore nam?
                     </p>
                     <img src="#" alt="ava" class="slide__avatar">
-                    <p class="slide__userName">Екатерина Иванова</p>
+                    <p class="slide__user-name">Екатерина Иванова</p>
+                    <span class="slide__position">Директор ООО "Раз-Два" </span>
+                </div>
+                <div class="slider__slide slide">
+                    <p class="slide__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Labore fugiat praesentium ipsa similique odio accusamus maxime a consectetur
+                        veritatis sint, corrupti pariatur ad eligendi quaerat nostrum sunt et inventore nam?
+                    </p>
+                    <img src="#" alt="ava" class="slide__avatar">
+                    <p class="slide__user-name">Екатерина Иванова</p>
                     <span class="slide__position">Директор ООО "Раз-Два" </span>
                 </div>
             </div>
@@ -256,7 +265,7 @@
                 2019(c)Все права защищены.БухОне.ру
             </p>
             <div class="footer__author ">
-                Разработано: <a href="#" class="footer__">BuhOne</a>
+                Разработано: <a href="#" class="footer__link">BuhOne</a>
             </div>
         </footer>
 
