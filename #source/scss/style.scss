@@ -2,30 +2,29 @@ a{
     color: black;
     text-decoration: none;
 }
+.container{
+    width: 80vw;
+    margin: 0 auto;
+}
 .body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    &__container{
-        padding: 0 10vw 0 10vw;
-    }
     &__section-specializations{
         margin-top: 510px;
-        margin-bottom: 40px;
-        background-color: #EBEBEB;
     }
     &__section-about{
-        display: flex;
+        // display: flex;
     }
-    &__section-clients{
+    // &__section-clients{
 
-    }
-    %__section-reviews{
+    // }
+    // %__section-reviews{
 
-    }
-    &__footer{
+    // }
+    // &__footer{
 
-    }
+    // }
 }
 //header
 .header{
@@ -36,35 +35,40 @@ a{
     line-height: 17px;
     letter-spacing: 0.1em;
     text-align: left;
-    display: grid;
-    grid-template-areas: 'logo nav nav'
-                        'logo nav nav'
-                        'slider slider slider';
-    grid-template-columns: 1fr 1fr 1.5fr;
-    grid-template-rows: repeat(3, auto);
+    &__container{
+        display: grid;
+        grid-template-areas: 'logo nav nav'
+                             'logo nav nav'
+                            'slider slider slider';
+        grid-template-columns: 1fr 1fr 1.5fr;
+        grid-template-rows: repeat(3, auto);
+        margin: 0 auto;
+    }
     &__logo{
         grid-area: logo;
-        max-height: 70px;
+        max-height: 43px;
+        margin: auto 0;
     }
     &__list-wrapper{
         grid-area: nav;
     }
     &__main-list{
-        margin-left: 2em;
+        margin: 22px 0 22px 28px;
     }
     &__main-navigation{
-
+        margin: 15px 0 ;
     }
     &__slider{
         grid-area: slider;
-        top: 70px;
+        top: 105px;
         left: 0;
         right: 0;
         // height: 800px;   
     }
 }
-.logo{
-    
+.container{
+    width: 80vw;
+
 }
 .main-list{
     display: flex;
@@ -93,20 +97,21 @@ a{
     }
 }
 .slide{
+    background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/a4/e0/27/st-petersburg.jpg?w=1000&h=600&s=1');
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.6);
     &__container{
-        background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/a4/e0/27/st-petersburg.jpg?w=1000&h=600&s=1');
-        background-color: rgba(0, 0, 0, 0.7);
+        // opacity: 0.7;
+        margin: 0 auto;
         padding-top: 110px;
         padding-bottom: 110px;
-        background-size: cover;
-        background-blend-mode: luminosity;
-        padding-left: 10vw;
         height: 300px;
     }
     &__title{
         color:white;
         line-height: 1.5;
-        font-family: Merriweather;
+        font-family: 'Merriweather';
         font-size: 48px;
         font-style: normal;
         font-weight: 700;
@@ -146,10 +151,6 @@ a{
     min-height: 200px;
     background-image: url(https://visit-petersburg.ru/media/uploads/audioguide/43/43_cover.jpg);
 }
-
-// .body__section-specializations{
-//     margin-top: 450px;
-// }
 .header .slick-arrow{
     position: absolute;
     top: 70%;
@@ -157,7 +158,12 @@ a{
 
 .slider{
     position: absolute;
+    width: 100vw;
+    // overflow: hidden;
     
+}
+.slick-list.draggable{
+    width: 100vw;
 }
 .slick-arrow{
     position: absolute;
@@ -215,8 +221,8 @@ a{
     }
     button{
         font-size: 0;
-        width: 10px;
-        height: 10px;
+        width: 5px;
+        height: 5px;
         border-radius: 50%;
         background-color: #fff;
         opacity: 0.4;
@@ -228,6 +234,11 @@ a{
 }
 .section-specializations{
     padding: 0 0 50px 0;
+    background-color: #EBEBEB;
+    padding-bottom: 140px;
+    &.container{
+        display: flex;
+    }
 }
 
 .tagline{
@@ -239,7 +250,8 @@ a{
     letter-spacing: 0em;
     text-align: left;
     color: #BDBDBD;
-    padding-top: 70px;
+    padding-top: 140px;
+    margin: 0;
 }
 .caption{
     font-family: 'Merriweather';
@@ -250,6 +262,8 @@ a{
     letter-spacing: 0em;
     text-align: left;
     color: #333;
+    margin: 0;
+    padding: 40px 0 0 0;
 }
 .list-gallery{
     display: flex;
@@ -257,9 +271,11 @@ a{
     list-style: none;
     padding: 0;
     justify-content: space-between;
+    padding-top: 100px;
 
     &__item{
         background-image: url(/img/Rectangle.png);
+        background-size: cover;
         width: 20vw;
         height: 360px;
         margin: 0 2vw 2vw 0;
@@ -283,7 +299,10 @@ a{
         margin: 0;
         padding: 0;
     }
-  }
+}
+.list-gallery__item:nth-child(3n) {
+    margin-right: 0;
+    }
 .section-about{
     &__wrapper{
         flex-basis: 50%;
