@@ -4,7 +4,7 @@ a {
 }
 
 .container {
-  width: 80vw;
+  width: 1160px;
   margin: 0 auto;
 }
 
@@ -15,8 +15,8 @@ a {
           box-sizing: border-box;
 }
 
-.body__section-specializations {
-  margin-top: 510px;
+.body__section-clients {
+  background-color: #EBEBEB;
 }
 
 .header {
@@ -27,17 +27,6 @@ a {
   line-height: 17px;
   letter-spacing: 0.1em;
   text-align: left;
-}
-
-.header__container {
-  display: -ms-grid;
-  display: grid;
-      grid-template-areas: 'logo nav nav' 'logo nav nav' 'slider slider slider';
-  -ms-grid-columns: 1fr 1fr 1.5fr;
-      grid-template-columns: 1fr 1fr 1.5fr;
-  -ms-grid-rows: (auto)[3];
-      grid-template-rows: repeat(3, auto);
-  margin: 0 auto;
 }
 
 .header__logo {
@@ -58,7 +47,7 @@ a {
 }
 
 .header__main-list {
-  margin: 22px 0 22px 28px;
+  margin: 22px 0;
 }
 
 .header__main-navigation {
@@ -70,13 +59,20 @@ a {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: slider;
-  top: 105px;
-  left: 0;
-  right: 0;
 }
 
-.container {
-  width: 80vw;
+.header > .container {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'logo nav nav' 'logo nav nav' 'slider slider slider';
+  -ms-grid-columns: 1fr 1fr 1.5fr;
+      grid-template-columns: 1fr 1fr 1.5fr;
+  -ms-grid-rows: (auto)[3];
+      grid-template-rows: repeat(3, auto);
+}
+
+.slide > .container {
+  min-height: 500px;
 }
 
 .main-list {
@@ -96,13 +92,13 @@ a {
 }
 
 .main-list__img {
-  position: absolute;
-  left: -.5em;
-  max-height: 17;
+  margin-right: 16px;
 }
 
 .main-list__link {
-  padding-left: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .main-navigation__main-list {
@@ -116,13 +112,7 @@ a {
   background-size: cover;
   background-blend-mode: overlay;
   background-color: rgba(0, 0, 0, 0.6);
-}
-
-.slide__container {
-  margin: 0 auto;
-  padding-top: 110px;
-  padding-bottom: 110px;
-  height: 300px;
+  padding-top: 100px;
 }
 
 .slide__title {
@@ -135,11 +125,15 @@ a {
   line-height: 66px;
   letter-spacing: 0em;
   text-align: left;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .slide__button {
-  width: 270px;
+  margin-bottom: 120px;
+}
+
+.button {
+  color: white;
   padding: 1.2em 3em;
   background: #005FA3;
   font-family: inherit;
@@ -149,11 +143,6 @@ a {
   line-height: 25px;
   letter-spacing: 0em;
   text-align: center;
-  color: white;
-}
-
-.button {
-  color: white;
 }
 
 .slick-list {
@@ -166,19 +155,10 @@ a {
   display: flex;
 }
 
-.slider-clients__item {
-  min-height: 200px;
-  background-image: url(https://visit-petersburg.ru/media/uploads/audioguide/43/43_cover.jpg);
-}
-
-.header .slick-arrow {
-  position: absolute;
-  top: 70%;
-}
-
 .slider {
-  position: absolute;
+  position: relative;
   width: 100vw;
+  overflow: hidden;
 }
 
 .slick-list.draggable {
@@ -187,8 +167,6 @@ a {
 
 .slick-arrow {
   position: absolute;
-  bottom: 20%;
-  right: 100px;
   z-index: 10;
   font-size: 0;
   width: 60px;
@@ -198,14 +176,16 @@ a {
 }
 
 .slick-arrow.slick-prev {
-  right: 157px;
+  right: calc((100vw - 1160px)/2 + 60px);
+  bottom: 112px;
 }
 
-.slick-arrow.slick-prev:hover {
-  opacity: 0.4;
+.slick-arrow.slick-next {
+  right: calc((100vw - 1160px)/2);
+  bottom: 112px;
 }
 
-.slick-arrow.slick-next:hover {
+.slick-arrow.slick-prev:hover, .slick-arrow.slick-next:hover {
   opacity: 0.4;
 }
 
@@ -214,7 +194,7 @@ a {
   position: absolute;
   border: 1px solid;
   border-color: black black transparent transparent;
-  padding: 8px;
+  padding: 10px;
   -webkit-transform: rotate(-135deg) !important;
           transform: rotate(-135deg) !important;
   left: calc(55% - 10px);
@@ -239,8 +219,9 @@ a {
   display: -ms-flexbox;
   display: flex;
   padding: 0;
-  bottom: 40px;
-  left: 10vw;
+  margin: 0;
+  bottom: 112px;
+  left: calc((100vw - 1160px)/2);
 }
 
 .slick-dots li {
@@ -250,8 +231,8 @@ a {
 
 .slick-dots button {
   font-size: 0;
-  width: 5px;
-  height: 5px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   background-color: #fff;
   opacity: 0.4;
@@ -267,10 +248,8 @@ a {
   padding-bottom: 140px;
 }
 
-.section-specializations.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.section-specializations .slick-dots button {
+  background-color: #005FA3;
 }
 
 .tagline {
@@ -284,6 +263,7 @@ a {
   color: #BDBDBD;
   padding-top: 140px;
   margin: 0;
+  margin-bottom: 40px;
 }
 
 .caption {
@@ -296,7 +276,7 @@ a {
   text-align: left;
   color: #333;
   margin: 0;
-  padding: 40px 0 0 0;
+  margin-bottom: 60px;
 }
 
 .list-gallery {
@@ -310,7 +290,7 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-top: 100px;
+  padding-top: 160px;
 }
 
 .list-gallery__item {
@@ -350,7 +330,7 @@ a {
 .section-about__wrapper {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
-  margin-right: 2vw;
+  margin-right: 125px;
 }
 
 .section-about__list-gallery {
@@ -358,14 +338,348 @@ a {
       flex-basis: 48%;
 }
 
+.section-about__text {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.section-about .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 140px;
+}
+
+.list-gallery__card:nth-child(2n) {
+  margin-right: 0;
+}
+
 .list-gallery__card {
-  width: 12vw;
-  -ms-flex-preferred-size: 44%;
-      flex-basis: 44%;
+  min-width: 200px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  height: 240px;
   background-color: #EBEBEB;
   margin: 0 2vw 2vw 0;
+}
+
+.card {
+  padding: 20px 0px 30px 30px;
+}
+
+.card__mark {
+  font-family: 'Lato';
+  font-size: 55px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 66px;
+  letter-spacing: 0.1em;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.card__content {
+  font-family: 'Lato';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 48px;
+}
+
+.card__link {
+  text-decoration: underline;
+  color: #005FA3;
+  margin-bottom: 40px;
+}
+
+.card:hover {
+  background-color: #005FA3;
+}
+
+.card:hover .card__mark {
+  color: white;
+}
+
+.card:hover .card__content {
+  color: white;
+}
+
+.card:hover .card__link {
+  color: white;
+}
+
+.section-clients {
+  position: relative;
+}
+
+.section-clients__caption {
+  margin-bottom: 80px;
+}
+
+.section-clients .slider {
+  height: 300px;
+}
+
+.section-clients .slider .slick-dots {
+  bottom: 100px;
+}
+
+.section-clients .slick-arrow {
+  background-color: #005FA3;
+}
+
+.section-clients .slick-arrow.slick-prev:hover, .section-clients .slick-arrow.slick-next:hover {
+  opacity: 1;
+}
+
+.section-clients .slick-arrow.slick-prev::after {
+  border-color: white white transparent transparent;
+}
+
+.section-clients .slick-arrow.slick-next::after {
+  border-color: white white transparent transparent;
+}
+
+.section-clients .slick-dots li {
+  list-style: none;
+  margin-right: 20px;
+}
+
+.section-clients .slick-dots button {
+  background-color: #005FA3;
+}
+
+.slider-clients__item .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.section-reviews__slider .slide {
+  background-color: white;
+  padding: 0;
+}
+
+.section-reviews__slider .slide .container .slide__wrap {
+  background-color: #EBEBEB;
+  padding: 2em 6em;
+  position: relative;
+}
+
+.slide__text {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.slide__avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.slide__user-name {
+  position: absolute;
+  bottom: 75px;
+  left: 230px;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.slide__position {
+  display: block;
+  position: absolute;
+  bottom: 65px;
+  left: 230px;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #4F4F4F;
+}
+
+.section-reviews .slick-arrow {
+  background-color: #005FA3;
+}
+
+.section-reviews .slick-arrow.slick-prev:hover, .section-reviews .slick-arrow.slick-next:hover {
+  opacity: 1;
+}
+
+.section-reviews .slick-arrow.slick-prev::after {
+  border-color: white white transparent transparent;
+}
+
+.section-reviews .slick-arrow.slick-next::after {
+  border-color: white white transparent transparent;
+}
+
+.section-reviews .slick-dots li {
+  list-style: none;
+  margin-right: 20px;
+}
+
+.section-reviews .slick-dots button {
+  background-color: #005FA3;
+}
+
+.footer .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer__caption {
+  color: white;
+  margin-bottom: 60px;
+}
+
+.footer__first-footer {
+  background-image: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/a4/e0/27/st-petersburg.jpg?w=1000&h=600&s=1");
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 122px 0;
+  color: white;
+}
+
+.footer__text {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 0 0 80px 0;
+}
+
+.footer__main-list {
+  font-family: 'Lato', sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer__main-list a {
+  color: white;
+}
+
+.form {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 30px;
+      grid-template-areas: 'inp-name inp-surname' 'msg msg' '. btn';
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: (auto)[3];
+      grid-template-rows: repeat(3, auto);
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.form__input {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #BDBDBD;
+}
+
+.form__box-name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: inp-name;
+}
+
+.form__box-surname {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: inp-surname;
+}
+
+.form__textarea {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: msg;
+}
+
+.form__message {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  overflow: auto;
+  resize: none;
+  width: 100%;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #BDBDBD;
+}
+
+.form__button {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: btn;
+  background-color: #005FA3;
+  padding: 1em 2em;
+  color: #fff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
 }
