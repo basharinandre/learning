@@ -1,12 +1,16 @@
+*{
+    transition: .2s;
+}
 a{
     color: black;
     text-decoration: none;
 }
 .container{
-    width: 1160px;
+    max-width: 1160px;
     margin: 0 auto;
 }
 .body{
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,9 +23,9 @@ a{
     &__section-clients{
         background-color: #EBEBEB;
     }
-    // %__section-reviews{
-
-    // }
+    &__section-reviews{
+        margin-bottom: 140px;
+    }
     // &__footer{
 
     // }
@@ -35,10 +39,47 @@ a{
     line-height: 17px;
     letter-spacing: 0.1em;
     text-align: left;
+    .logo__text{
+        position: relative;
+    }
+    .logo__text::before{
+        content: url('../img/logoLeft.png');
+        position: absolute;
+        top: -3px;
+        left: 0;
+        // content: '';
+        // width: 50px;
+        // height: 50px;
+        // background-image: url('./img/logoLeft.png');
+        // background-size: 50px 50px;
+    }
+    .logo__text::after{
+        content: url('../img/logoRight.png');
+        position: absolute;
+        top: 3px;
+        left: 5px;
+        // content: '';
+        // width: 50px;
+        // height: 50px;
+        // background-image: url('./img/logoLeft.png');
+        // background-size: 50px 50px;
+    }
+    .logo__text{
+        padding-left: 64px;
+        color: #005FA3;
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 36px;
+        line-height: 50px;
+        letter-spacing: 0;
+    }
     &__logo{
         grid-area: logo;
         max-height: 43px;
         margin: auto 0;
+        // position: relative;
+        // padding-left: 36px;
     }
     &__list-wrapper{
         grid-area: nav;
@@ -59,7 +100,7 @@ a{
     grid-template-areas: 'logo nav nav'
                          'logo nav nav'
                         'slider slider slider';
-    grid-template-columns: 1fr 1fr 1.5fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(3, auto);
 }
 .slide>.container{
@@ -87,6 +128,11 @@ a{
         text-transform: uppercase;
         font-size: 14px;
     }
+    &__main-list .main-list__item:hover{
+        cursor: pointer;
+        text-shadow: 0 0 10px rgba(51, 11, 194, 0.6);
+    }
+
 }
 .slide{
     background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/a4/e0/27/st-petersburg.jpg?w=1000&h=600&s=1');
@@ -94,7 +140,6 @@ a{
     background-blend-mode: overlay;
     background-color: rgba(0, 0, 0, 0.6);
     padding-top: 100px;
-    // height: 670px;
     &__title{
         color:white;
         line-height: 1.5;
@@ -108,7 +153,6 @@ a{
         margin-bottom: 80px;
     }
     &__button{
-        // width: 270px;
         margin-bottom: 120px;
     }
 }
@@ -133,15 +177,13 @@ a{
 
 .slick-track{
     display: flex;
+    // width: 100% !important;
 }
 
 .slider{
     position: relative;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
-}
-.slick-list.draggable{
-    width: 100vw;
 }
 .slick-arrow{
     position: absolute;
@@ -151,30 +193,32 @@ a{
     height: 60px;
     background-color: #fff;
     opacity: 0.2;
-    // top: 10px;
 }
 .slick-arrow.slick-prev{
-    right: calc((100vw - 1160px)/2 + 60px);
+    right: calc((100vw - 1195px)/2 + 60px);
     bottom: 112px;
+    border: 0;
 }
 .slick-arrow.slick-next{
-    right: calc((100vw - 1160px)/2);
+    right: calc((100vw - 1195px)/2);
     bottom: 112px;
+    border: 0;
 }
 .slick-arrow.slick-prev:hover, .slick-arrow.slick-next:hover{
     opacity: 0.4;
-
 }
 
 .slick-arrow.slick-prev::after{
     content: ' ';
     position: absolute;
     border: 1px solid;
-    border-color: black black transparent transparent ;
+    border-color:black black transparent transparent ;
     padding: 10px;
     transform: rotate(-135deg) !important;
     left: calc(55% - 10px);
     top: calc(50% - 10px);
+    opacity: 1;
+    z-index: 100;
 }
 .slick-arrow.slick-next::after{
     content: ' ';
@@ -193,35 +237,42 @@ a{
     padding: 0;
     margin: 0;
     bottom: 112px;
-    left: calc((100vw - 1160px)/2);
+    left: calc((100vw - 1195px)/2);
     li{
         list-style: none;
-        margin-right: 20px;
+        margin-right: 30px;
     }
     button{
         font-size: 0;
-        width: 13px;
-        height: 13px;
+        width: 10px;
+        // height: 10px !important;
         border-radius: 50%;
         background-color: #fff;
         opacity: 0.4;
     }
 }
 
+.slider .slick-dots button{
+    font-size: 0;
+    max-width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 0;
+    margin-right: 5px;
+}
+
 .slick-dots li.slick-active button{
     opacity: initial;
 }
 .section-specializations{
-    padding: 0 0 50px 0;
+    padding: 0 0 140px 0;
     background-color: #EBEBEB;
-    padding-bottom: 140px;
     .slick-dots{
         button{
             background-color: #005FA3;
         }
     }
-    
-    
 }
 
 .tagline{
@@ -261,11 +312,15 @@ a{
     &__item{
         background-image: url(/img/Rectangle.png);
         background-size: cover;
-        width: 20vw;
+        width: 350px;
         height: 360px;
         margin: 0 2vw 2vw 0;
         flex-grow: 1;
         position: relative;
+        transition: .5s;
+    }
+    &__item:hover{
+        box-shadow: 0 0 15px rgba(0,0,0,0.7);
     }
     &__paragraph{
         font-family: 'Lato', sans-serif;
@@ -288,6 +343,7 @@ a{
 .list-gallery__item:nth-child(3n) {
     margin-right: 0;
 }
+
 .section-about{
     &__wrapper{
         flex-basis: 50%;
@@ -315,14 +371,14 @@ a{
 }
 .list-gallery{
     &__card{
-        min-width: 200px;
+        // min-width: 200px;
         flex-grow: 1;
         background-color: #EBEBEB;
         margin: 0 2vw 2vw 0;
     }
 }
 .card{
-    padding: 20px 0px 30px 30px;
+    padding: 20px 20px 30px 30px;
     &__mark{
     font-family: 'Lato';
     font-size: 55px;
@@ -366,18 +422,22 @@ a{
 
 .section-clients{
     position: relative;
+    padding-bottom: 80px;
     &__caption{
         margin-bottom: 80px;
     }
     .slider{
         height: 300px;
+        padding: 0 5% 0 5%;
+        width: 90%;
+        // overflow: hidden;
         .slick-dots{
-            bottom: 100px;
+            bottom: 50px;
         }
     }
     .slick-arrow{
         background-color:  #005FA3;
-       
+        bottom: 50px;
     }
     .slick-arrow.slick-prev:hover, .slick-arrow.slick-next:hover{
         opacity: 1;
@@ -414,7 +474,7 @@ a{
             background-color: white;
             padding: 0;
             .container{
-                
+
                 .slide__wrap{
                     background-color: #EBEBEB;
                     padding: 2em 6em;
@@ -474,6 +534,7 @@ a{
 .section-reviews{
     .slick-arrow{
         background-color:  #005FA3;
+        bottom: 10px;
        
     }
     .slick-arrow.slick-prev:hover, .slick-arrow.slick-next:hover{
@@ -487,6 +548,7 @@ a{
         border-color: white white transparent transparent ;
     }
     .slick-dots{
+        bottom: 10px;
         li{
             list-style: none;
             margin-right: 20px;
@@ -537,7 +599,18 @@ a{
             color: white;
         }
     }
+    &__copyright{
+        margin: auto 0 auto;
+    }
+    &__author{
+        align-self: center;
+        margin: 50px 0 50px;
+    }
 }
+
+// .footer__secondary-footer .container{
+//     he
+// }
 .form{
     display: grid;
     grid-gap: 30px;
@@ -566,6 +639,7 @@ a{
         letter-spacing: 0em;
         text-align: left;
         color: #BDBDBD;
+        width: 100%;
     }
     &__box-name{
         grid-area: inp-name;
@@ -603,5 +677,1562 @@ a{
         font-weight: 400;
         line-height: 25px;
         letter-spacing: 0em;
+    }
+}
+
+.header__toggle{
+    display: none;
+    padding-right: 1em;
+    position: absolute;
+    text-indent: 4em;
+    width: 2em;
+    height: 2em;
+    /* font-size: 2em; */
+    line-height: 0.9;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1em;
+    border: 0;
+    background: transparent;
+    right: 16px;
+    top: 16px;
+}
+.header__toggle::after{
+    position: absolute;
+    content:'\2261';
+    font-size: 3em;
+    text-indent: 0;
+    display: block;
+    top: -0.1em;
+    left: 2px;
+}
+
+// @media(max-width: 1200px){
+//     .header{
+//         font-size: 12px;
+// }
+
+@media(max-width: 1195px){
+    .header__toggle{
+        // display: block;
+    }
+    .header{
+        // font-size: 12px;
+    }
+    .main-navigation{
+        &__main-list{
+            font-weight: bold;
+            text-transform: uppercase;
+            
+        }
+    }
+    .header>.container{
+    // display: block;
+    grid-template-areas: 'logo .'
+                         'nav nav'
+                        'slider slider';
+    grid-template-columns: repeat(2, auto) ;
+    grid-template-rows: repeat(2, auto);
+    }
+    .main-list{
+        display: flex;
+        justify-content:  space-between;
+        width: 100%;
+        // &__item{
+        //     margin-right: 12vw;
+        // }
+    }
+}
+@media(max-width: 700px){
+    .header__list-wrapper{
+        display: none;
+    }
+    .is-open{
+        position: absolute;
+        display: block;
+        z-index: 100;
+        top: 56px;
+        left: 0;
+        background-color: white;
+        width: 100%;
+        .main-list{
+            flex-direction: column;
+            margin-bottom: 24px;
+            .main-list__item{
+                margin-bottom: 12px;
+                align-self: center;
+            }
+        }
+    }
+    .header{
+        font-family: 'Lato', sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0.1em;
+        text-align: left;
+        &__logo{
+            max-height: 43px;
+            padding-top: 6px;
+            object-fit: contain;
+            width: 200px;
+            display: block;
+            margin: auto auto 12px;
+        }
+        &__list-wrapper{
+            grid-area: nav;
+        }
+        &__main-list{
+            margin: 22px 0 ;
+        }
+        &__main-navigation{
+            margin: 15px 0 ;
+        }
+        &__slider{
+            grid-area: slider; 
+        }
+        &__toggle{
+            display: block;
+        }
+    }
+    .main-list__img{
+        margin-right: 12px;
+    }
+    .header>.container{
+        display: block;
+    }
+    .form__input{
+        width: 99%;
+    }
+    .container{
+        min-width: 310px;
+        max-width: 90%;
+    }
+    .slide>.container{
+        min-height: 300px;
+    }
+    .slide{
+        background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/a4/e0/27/st-petersburg.jpg?w=1000&h=600&s=1');
+        background-size: cover;
+        background-blend-mode: overlay;
+        background-color: rgba(0, 0, 0, 0.6);
+        // padding-top: 24px;
+        &__title{
+            line-height: 1;
+            font-weight: 500;
+            line-height: 36px;
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+        &__button{
+            margin-bottom: 42px;
+        }
+    }
+    .button{
+        font-size: 14px;
+    }
+    .slick-arrow{
+        // position: absolute;
+        // z-index: 10;
+        // font-size: 0;
+        // width: 60px;
+        // height: 60px;
+        // background-color: #fff;
+        // opacity: 0.2;
+        display: none;
+    }
+    .slick-arrow.slick-prev:hover, .slick-arrow.slick-next:hover{
+        opacity: 0.4;
+    }
+    .slick-arrow.slick-prev::after{
+        content: ' ';
+        position: absolute;
+        border: 1px solid;
+        border-color: black black transparent transparent ;
+        padding: 10px;
+        transform: rotate(-135deg) !important;
+        left: calc(55% - 10px);
+        top: calc(50% - 10px);
+    }
+    .slick-arrow.slick-next::after{
+        content: ' ';
+        position: absolute;
+        border: 1px solid;
+        border-color: black black transparent transparent ;
+        padding: 10px;
+        transform: rotate(45deg) !important;
+        left: calc(40% - 10px);
+        top: calc(50% - 10px);
+    }
+    
+    .slick-dots{
+        position: absolute;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        bottom: 24px;
+        left: 5%;
+
+        li{
+            list-style: none;
+            margin-right: 12px;
+        }
+    }
+
+    .section-specializations{
+        padding: 0 0 50px 0;   
+    }
+
+    .section-about .container {
+        display: block;
+    }
+    .tagline{
+        padding-top: 42px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .caption{
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 42px;
+    }
+    .list-gallery{
+        padding: 0;
+        margin-top: 0;
+        &__item{
+            height: 340px;
+            margin: 0 0 12px;
+        }
+    }
+    .section-about{
+        display: block;
+        .container{
+            margin-bottom: 24px;
+        }
+        &__wrapper{
+            margin-right: 0;
+            // flex-basis: 50%;
+        }
+        &__list-gallery{
+            // flex-basis: 48%;
+        }
+        &__text{
+        font-size: 14px;
+        line-height: 22px;
+        text-align: justify;
+        }
+        .list-gallery{
+            &__card{
+                margin: 12px;
+            }
+        }
+        .card{
+            padding: 20px 20px 30px 30px;
+            &__mark{
+            font-family: 'Lato';
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 66px;
+            letter-spacing: 0.1em;
+            text-align: left;
+            margin-bottom: 30px;
+            }
+            &__content{
+                font-family: 'Lato';
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 18px;
+                letter-spacing: 0em;
+                text-align: left;
+                margin-bottom: 48px;
+            }    
+            &__link{
+                text-decoration: underline;
+                color: #005FA3;
+                margin-bottom: 40px;
+            }
+    }
+    
+    //Там в html костыль - <br> - что-то я впал в ступор, когда мне надо было строку перенести( пытался делать для
+    // card__content: margin-right: ; но card только растягивался...
+    }
+    .form__button{
+        // display: none;
+    }
+    .section-clients{
+        position: relative;
+        padding-bottom: 48px;
+        &__caption{
+            margin-bottom: 0px;
+        }
+        
+        .slider{
+            height: 200px;
+            padding: 0 10%;
+            .slick-dots{
+                bottom: 0;
+            }
+        }
+        .slick-arrow{
+            background-color:  #005FA3;
+            bottom: 50px;
+        }
+        .slick-arrow.slick-prev:hover, .slick-arrow.slick-next:hover{
+            opacity: 1;
+    
+        }
+        .slick-arrow.slick-prev::after{
+            border-color: white white transparent transparent ;
+        }
+        .slick-arrow.slick-next::after{
+            border-color: white white transparent transparent ;
+        }
+        .slick-dots{
+            li{
+                list-style: none;
+                margin-right: 20px;
+            }
+            button{
+                background-color: #005FA3;
+            }
+        }
+        
+    }
+    
+    .slider-clients__item{
+        .container{
+            display: flex;
+            justify-content: space-between;
+        }
+    
+    }
+    .section-reviews{
+        margin-bottom: 64px;
+        &__slider{
+            // width: 96%;
+            .slide{
+                background-color: white;
+                padding: 0 0 48px;
+                .container{
+    
+                    .slide__wrap{
+                        background-color: #EBEBEB;
+                        // padding: 2em 6em;
+                        position: relative;
+                        padding: 4px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .slide{
+        &__text{
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: justify;
+        margin-bottom: 60px;
+        margin-top: 0;
+        }
+        &__wrap{
+            padding: 0;
+        }
+        &__avatar{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        &__user-name{
+            position: absolute;
+            bottom: 45px;
+            left: 110px;
+            font-family: sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 25px;
+            letter-spacing: 0em;
+            text-align: left;
+    
+        }
+        &__position{
+            display: block;
+            position: absolute;
+            bottom: 25px;
+            left: 110px;
+            font-family: sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #4F4F4F;
+    
+        }
+    }
+    .section-reviews{
+        .slick-arrow{
+            background-color:  #005FA3;
+            bottom: 10px;
+           
+        }
+        .slick-arrow.slick-prev:hover, .slick-arrow.slick-next:hover{
+            opacity: 1;
+    
+        }
+        .slick-arrow.slick-prev::after{
+            border-color: white white transparent transparent ;
+        }
+        .slick-arrow.slick-next::after{
+            border-color: white white transparent transparent ;
+        }
+        .slick-dots{
+            bottom: 0px;
+            li{
+                list-style: none;
+                margin-right: 20px;
+            }
+            button{
+                background-color: #005FA3;
+            }
+        }
+    }
+    .footer{
+        .container{
+            display: block;
+        }
+        &__caption{
+            color: white;
+            margin-bottom: 24px;
+        }
+        &__first-footer{
+            background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/a4/e0/27/st-petersburg.jpg?w=1000&h=600&s=1');
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 48px 0;
+            color: white;
+        }
+        &__text{
+        font-family: 'Lato', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 100;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: center;
+        margin: 0 0 48px 0;
+        }
+        &__main-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+            a{
+                color: white;
+                margin-bottom: 24px;
+            }
+        }
+        &__copyright{
+            margin: 4px 0 auto;
+            text-align: center;
+        }
+
+        &__author{
+            margin: 12px 0;
+            text-align: center;
+        }
+    }
+
+    .form{
+        display: block;
+        &__input{
+            border: none;
+            border-bottom: 1px solid #fff;
+            background-color: transparent;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #BDBDBD;
+            width: 99%;
+        }
+        &__box-name{
+            grid-area: inp-name;
+        }
+        &__box-surname{
+            grid-area: inp-surname;
+        }
+        &__textarea{
+            grid-area: msg;
+        }
+        &__message{
+            background: none;
+            border: none;
+            border-bottom: 1px solid #fff;
+            overflow: auto;
+            resize: none;
+            width: 99%;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #BDBDBD;
+        }
+        &__button{
+            grid-area: btn;
+            background-color: #005FA3;
+            padding: 1em 2em;
+            color: #fff;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: 0em;
+            margin: 0 auto;
+        }
+    }
+    
+}
+
+@media(min-width: 700px) and (max-width: 768px){
+    .header{
+        font-family: 'Lato', sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0.1em;
+        text-align: left;
+        &__logo{
+            display: block;
+            // grid-area: logo;
+            max-height: 43px;
+            margin: 4px auto;
+            width: 200px;
+            margin: auto auto 12px;
+        }
+        .logo__text{
+            align-self: center;
+        }
+        &__list-wrapper{
+            // grid-area: nav;
+        }
+        &__main-list{
+            margin: 22px 0 ;
+        }
+        &__main-navigation{
+            margin: 15px 0 ;
+        }
+        &__slider{
+            // grid-area: slider; 
+        }
+        .container{
+            // width: 100%;
+        }
+    }
+   
+    .header .container{
+        display: block;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .slide>.container{
+        min-height: 500px;
+        width: 90%;
+        padding: 0 5%;
+    }
+    .main-list{
+        // display: flex;
+        // text-decoration: none;
+        // list-style: none;
+        // justify-content: space-between;
+        width: 98%;
+        padding: 0 1%;
+        &__item{    
+            position: relative;
+        }
+        &__img{
+            margin-right: 12px;
+        }
+        &__link{
+            display: flex;
+        }
+    }
+    .main-navigation{
+        &__main-list{
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        &__main-list .main-list__item:hover{
+            cursor: pointer;
+            text-shadow: 0 0 10px rgba(51, 11, 194, 0.6);
+        }
+    }
+    .list-gallery{
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        justify-content: space-between;
+        padding-top: 160px;
+    
+        &__item{
+            background-image: url(/img/Rectangle.png);
+            background-size: cover;
+            width: 250px;
+            height: 260px;
+            margin: 0 2vw 2vw 0;
+            flex-grow: 1;
+            position: relative;
+            transition: .5s;
+            margin-right: 12px;
+        }
+        &__item:hover{
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
+        }
+        &__paragraph{
+            font-family: 'Lato', sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 30px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #fff;
+            padding-left: 50px;
+            padding-top: 70%;
+            position: absolute;
+            bottom: 45px;
+            left: 45px;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .list-gallery__item:nth-child(2n) {
+        margin-right: 0;
+    }
+    .list-gallery__item:nth-child(3n) {
+        margin-right: 12px;
+    }
+    .list-gallery__item:last-child {
+        margin-right: 0;
+    }
+    .section-specializations{
+        .container{
+            width: 95%;
+            padding: 0 2.5%;
+        }
+    }
+    .tagline{
+        padding-top: 42px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .caption{
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 42px;
+    }
+    .section-about{
+        .tagline {
+            padding-top: 82px;
+        }
+        &__wrapper{
+            flex-basis: 50%;
+            // margin-right: 125px;
+        }
+        &__list-gallery{
+            flex-basis: 48%;
+        }
+        &__text{
+        font-family: 'Lato', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 36px;
+        letter-spacing: 0em;
+        text-align: left;
+        }
+        .container{
+            width: 95%;
+            padding: 0 2.5%;
+        }
+    }
+    // .list-gallery__card:nth-child(2n){
+    //     margin-right: 2vw;
+    // }
+    .list-gallery{
+        padding-top: 48px;
+        &__card{
+            min-width: 200px;
+            flex-grow: 1;
+            background-color: #EBEBEB;
+            margin: 0 0 2vw 0;
+        }
+    }
+    .card{
+        padding: 20px 0px 30px 30px;
+        &__mark{
+        font-family: 'Lato';
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 66px;
+        letter-spacing: 0.1em;
+        text-align: left;
+        margin-bottom: 20px;
+        }
+        &__content{
+            font-family: 'Lato';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 18px;
+            letter-spacing: 0em;
+            text-align: left;
+            margin-bottom: 36px;
+        }    
+        &__link{
+            text-decoration: underline;
+            color: #005FA3;
+            margin-bottom: 24px;
+        }
+    //Там в html костыль - <br> - что-то я впал в ступор, когда мне надо было строку перенести( пытался делать для
+    // card__content: margin-right: ; но card только растягивался...
+    }
+    .section-clients{
+        position: relative;
+        padding-bottom: 80px;
+        &__caption{
+            margin-bottom: 80px;
+        }
+        .slider{
+            height: 200px;
+            // height: 300px;
+            // padding: 0 10%;
+            .slick-dots{
+                bottom: 0px;
+                left: 6%;
+            }
+        }
+        .slick-arrow{
+            background-color:  #005FA3;
+            bottom: 50px;
+        }
+        .slick-arrow.slick-prev:hover, .slick-arrow.slick-next:hover{
+            opacity: 1;
+    
+        }
+        .slick-arrow.slick-prev::after{
+            border-color: white white transparent transparent ;
+        }
+        .slick-arrow.slick-next::after{
+            border-color: white white transparent transparent ;
+        }
+        .slick-dots{
+            li{
+                list-style: none;
+                margin-right: 20px;
+            }
+            button{
+                background-color: #005FA3;
+            }
+        }
+        .container{
+            width: 95%;
+            padding: 0 2.5%;
+        }
+    }
+    
+    .slider-clients__item{
+        .container{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+    
+    }
+    .section-reviews{
+        &__slider{
+            .slide{
+                background-color: white;
+                padding: 0;
+                .container{
+    
+                    .slide__wrap{
+                        background-color: #EBEBEB;
+                        padding: 2em 6em;
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
+    
+    .slide{
+        &__text{
+        font-family: 'Lato', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-bottom: 60px;
+        }
+        &__avatar{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        &__user-name{
+            position: absolute;
+            bottom: 75px;
+            left: 230px;
+            font-family: sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 25px;
+            letter-spacing: 0em;
+            text-align: left;
+    
+        }
+        &__position{
+            display: block;
+            position: absolute;
+            bottom: 65px;
+            left: 230px;
+            font-family: sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #4F4F4F;
+    
+        }
+    }
+    .section-reviews{
+        .slick-arrow{
+            background-color:  #005FA3;
+            bottom: 10px;
+           
+        }
+        .slick-arrow.slick-prev:hover, .slick-arrow.slick-next:hover{
+            opacity: 1;
+    
+        }
+        .slick-arrow.slick-prev::after{
+            border-color: white white transparent transparent ;
+        }
+        .slick-arrow.slick-next::after{
+            border-color: white white transparent transparent ;
+        }
+        .slick-dots{
+            bottom: 8%;
+            left: 6%;
+            li{
+                list-style: none;
+                margin-right: 20px;
+            }
+            button{
+                background-color: #005FA3;
+            }
+        }
+        .container{
+            width: 95%;
+            padding: 0 2.5%;
+        }
+    }
+    .body__section-reviews {
+        margin-bottom: 0;
+    }
+    .footer{
+        
+        .container{
+            display: block;
+            justify-content: space-between;
+        }
+        &__caption{
+            color: white;
+            margin-bottom: 12px;
+        }
+        &__first-footer{
+            background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/a4/e0/27/st-petersburg.jpg?w=1000&h=600&s=1');
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 48px 0;
+            color: white;
+        }
+        &__text{
+        font-family: 'Lato', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 100;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: center;
+        // align-items: center;
+
+        margin: 0 0 80px 0;
+        }
+        &__main-list{
+        font-family: 'Lato', sans-serif;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: left;
+        justify-content: space-around;
+            a{
+                color: white;
+            }
+        }
+        &__copyright{
+            margin: auto 0 auto;
+            text-align: center;
+        }
+
+        &__author{
+            align-self: center;
+            margin: 12px 0 12px;
+            text-align: center;
+
+        }
+    }
+    
+    // .footer__secondary-footer .container{
+    //     he
+    // }
+    .form{
+        display: grid;
+        grid-gap: 30px;
+        grid-template-areas: 'inp-name inp-surname'
+                             'msg msg'
+                            '. btn';
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, auto);
+        font-family: 'Lato', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        padding: 24px;
+        &__input{
+            border: none;
+            border-bottom: 1px solid #fff;
+            background-color: transparent;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #BDBDBD;
+            width: 100%;
+        }
+        &__box-name{
+            grid-area: inp-name;
+        }
+        &__box-surname{
+            grid-area: inp-surname;
+        }
+        &__textarea{
+            grid-area: msg;
+        }
+        &__message{
+            background: none;
+            border: none;
+            border-bottom: 1px solid #fff;
+            overflow: auto;
+            resize: none;
+            width: 100%;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #BDBDBD;
+        }
+        &__button{
+            grid-area: btn;
+            background-color: #005FA3;
+            padding: 1em 2em;
+            color: #fff;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: 0em;
+        }
+    }
+}
+@media(min-width: 769px) and (max-width: 1024px){
+    .container{
+        min-width: 700px;
+        max-width: 95%;
+        margin: 0 2.5%;
+    }
+    .header{
+        &__logo{
+            display: block;
+            margin: auto;
+            margin-left: 50%;
+        }
+        .slick-dots{
+            bottom: 112px;
+            left: 2.5%;
+        }
+    }
+    .slick-arrow.slick-prev{
+        right: calc(2.5% + 60px);
+        bottom: 112px;
+        border: 0;
+    }
+    .slick-arrow.slick-next{
+        right: 2.5%;
+        bottom: 112px;
+        border: 0;
+    }
+    .tagline{
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 33px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #BDBDBD;
+        padding-top: 64px;
+        margin: 0;
+        margin-bottom: 48px;
+    }
+    .caption{
+        font-family: 'Merriweather';
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 69px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #333;
+        margin: 0;
+        margin-bottom: 48px;
+    }
+    .section-specializations{
+        padding-bottom: 48px;
+        .list-gallery{
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            justify-content: space-between;
+            padding-top: 48px;
+        
+            &__item{
+                background-image: url(/img/Rectangle.png);
+                background-size: cover;
+                width: 250px;
+                height: 260px;
+                margin: 0 2vw 2vw 0;
+                flex-grow: 1;
+                position: relative;
+                transition: .5s;
+                margin-right: 12px;
+            }
+            &__item:hover{
+                box-shadow: 0 0 15px rgba(0,0,0,0.7);
+            }
+            &__paragraph{
+                font-family: 'Lato', sans-serif;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 30px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #fff;
+                padding-left: 50px;
+                padding-top: 70%;
+                position: absolute;
+                bottom: 45px;
+                left: 45px;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        // .list-gallery__item:nth-child(2n) {
+        //     margin-right: 0;
+        // }
+        // .list-gallery__item:nth-child(3n) {
+        //     margin-right: 12px;
+        // }
+        // .list-gallery__item:last-child {
+        //     margin-right: 0;
+        // }
+    }
+    .section-about{
+        &__wrapper{
+            flex-basis: 44%;
+            margin-right: 125px;
+        }
+        &__list-gallery{
+            flex-basis: 60%;
+        }
+        &__text{
+        font-family: 'Lato', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: left;
+        }
+        .container{
+            display: flex;
+            margin-bottom: 140px;
+        }
+    }
+    .list-gallery__card:nth-child(2n){
+        margin-right: 0;
+    }
+    .list-gallery__card{
+        margin-right: 24px;
+    }
+    .list-gallery{
+        &__card{
+            min-width: 80px;
+            flex-grow: 1;
+            background-color: #EBEBEB;
+            margin: 12px;
+        }
+    }
+    .card{
+        padding: 10px 0px 15px 15px;
+        &__mark{
+        font-family: 'Lato';
+        font-size: 55px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 66px;
+        letter-spacing: 0.1em;
+        text-align: left;
+        margin-bottom: 30px;
+        }
+        &__content{
+            font-family: 'Lato';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 18px;
+            letter-spacing: 0em;
+            text-align: left;
+            margin-bottom: 48px;
+        }    
+        &__link{
+            text-decoration: underline;
+            color: #005FA3;
+            margin-bottom: 40px;
+        }
+    //Там в html костыль - <br> - что-то я впал в ступор, когда мне надо было строку перенести( пытался делать для
+    // card__content: margin-right: ; но card только растягивался...
+    }
+    .card:hover{
+        background-color: #005FA3;
+        .card__mark{
+            color: white; 
+        }
+        .card__content{
+            color: white; 
+        }
+        .card__link{
+            color: white;
+        }
+    }
+    .section-clients{
+        position: relative;
+        padding-bottom: 80px;
+        &__caption{
+            margin-bottom: 80px;
+        }
+        .slider{
+            .container{
+                margin: 0;
+            }
+            height: 300px;
+            padding: 0 2.5% 0 2.5%;
+            width: 95%;
+            // overflow: hidden;
+            .slick-dots{
+                left: 2.5%;
+                bottom: 48px;
+            }
+            .slick-arrow{
+                bottom: 48px;
+            }
+        }
+    }
+
+    .section-reviews{
+        .slick-arrow{
+            background-color:  #005FA3;
+            bottom: 10px;
+           
+        }
+        .slick-arrow.slick-prev:hover, .slick-arrow.slick-next:hover{
+            opacity: 1;
+    
+        }
+        .slick-arrow.slick-prev::after{
+            border-color: white white transparent transparent ;
+        }
+        .slick-arrow.slick-next::after{
+            border-color: white white transparent transparent ;
+        }
+        .slick-dots{
+            bottom: 10px;
+            left: 2.5%;
+            li{
+                list-style: none;
+                margin-right: 20px;
+            }
+            button{
+                background-color: #005FA3;
+            }
+        }
+    }
+
+    .footer{
+        
+        .container{
+            display: block;
+            justify-content: space-between;
+        }
+        &__caption{
+            color: white;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        &__first-footer{
+            background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/a4/e0/27/st-petersburg.jpg?w=1000&h=600&s=1');
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 48px 0;
+            color: white;
+        }
+        &__text{
+        font-family: 'Lato', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 100;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: center;
+        // align-items: center;
+
+        margin: 0 0 80px 0;
+        }
+        &__main-list{
+        font-family: 'Lato', sans-serif;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: left;
+        justify-content: space-around;
+            a{
+                color: white;
+            }
+        }
+        &__copyright{
+            margin: auto 0 auto;
+            text-align: center;
+        }
+
+        &__author{
+            align-self: center;
+            margin: 12px 0 12px;
+            text-align: center;
+
+        }
+    }
+    
+    // .footer__secondary-footer .container{
+    //     he
+    // }
+    .form{
+        display: grid;
+        grid-gap: 30px;
+        grid-template-areas: 'inp-name inp-surname'
+                             'msg msg'
+                            '. btn';
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, auto);
+        font-family: 'Lato', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        padding: 24px;
+        &__input{
+            border: none;
+            border-bottom: 1px solid #fff;
+            background-color: transparent;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #BDBDBD;
+            width: 100%;
+        }
+        &__box-name{
+            grid-area: inp-name;
+        }
+        &__box-surname{
+            grid-area: inp-surname;
+        }
+        &__textarea{
+            grid-area: msg;
+        }
+        &__message{
+            background: none;
+            border: none;
+            border-bottom: 1px solid #fff;
+            overflow: auto;
+            resize: none;
+            width: 100%;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 21px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 29px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #BDBDBD;
+        }
+        &__button{
+            grid-area: btn;
+            background-color: #005FA3;
+            padding: 1em 2em;
+            color: #fff;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: 0em;
+        }
+    }
+}
+@media(min-width: 966px) and (max-width: 1024px){
+    .list-gallery__card:nth-child(2n){
+        // margin-right: 12px;
+    }
+}
+@media(min-width: 1025px) and (max-width: 1196px){
+    .container{
+        min-width: 700px;
+        max-width: 95%;
+        margin: 0 2.5%;
+    }
+    .header{
+        &__logo{
+            display: block;
+            margin: auto;
+            margin-left: 50%;
+        }
+        .slick-dots{
+            bottom: 112px;
+            left: 2.5%;
+        }
+    }
+    .slick-arrow.slick-prev{
+        right: calc(2.5% + 60px);
+        bottom: 50px;
+        border: 0;
+    }
+    .slick-arrow.slick-next{
+        right: 2.5%;
+        bottom: 50px;
+        border: 0;
+    }
+    .section-specializations{
+        padding-bottom: 48px;
+        .list-gallery{
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            justify-content: space-between;
+            padding-top: 48px;
+        
+            &__item{
+                background-image: url(/img/Rectangle.png);
+                background-size: cover;
+                width: 250px;
+                height: 260px;
+                margin: 0 2vw 2vw 0;
+                flex-grow: 1;
+                position: relative;
+                transition: .5s;
+                margin-right: 12px;
+            }
+            &__item:hover{
+                box-shadow: 0 0 15px rgba(0,0,0,0.7);
+            }
+            &__paragraph{
+                font-family: 'Lato', sans-serif;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 30px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #fff;
+                padding-left: 50px;
+                padding-top: 70%;
+                position: absolute;
+                bottom: 45px;
+                left: 45px;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        // .list-gallery__item:nth-child(2n) {
+        //     margin-right: 0;
+        // }
+        // .list-gallery__item:nth-child(3n) {
+        //     margin-right: 12px;
+        // }
+        // .list-gallery__item:last-child {
+        //     margin-right: 0;
+        // }
+    }
+    .list-gallery__card:nth-child(2n){
+        // margin-right: 24px;
+    }
+    .slick-dots{
+        bottom: 112px;
+        left: 2.5%;
+    }
+    .list-gallery__card{
+        margin-right: 24px;
+    }
+}
+@media(min-width: 1197px) and (max-width: 1440px){
+    .container{
+        // min-width: 700px;
+        max-width: 95%;
+        margin: 0 2.5%;
+    }
+    .header{
+        &__logo{
+            display: block;
+            margin: auto;
+        }
+        .slick-dots{
+            bottom: 112px;
+            left: 2.5%;
+        }
+    }
+    .section-clients{
+        .slick-arrow.slick-prev{
+            right: calc(2.5% + 60px);
+            bottom: 112px;
+            border: 0;
+        }
+        .slick-arrow.slick-next{
+            right: 2.5%;
+            bottom: 112px;
+            border: 0;
+        }
+        .slick-dots{
+            bottom: 112px;
+            left: 2.5%;
+        }
+    }
+
+}
+@media(min-width: 1440px){
+    .container{
+        // min-width: 700px;
+        max-width: 1195px;
+        margin: 0 auto;
+    }
+    .section-clients .slider {
+        height: 300px;
+        width: 1195px;
+        margin: 0 auto;
+        padding: 0;
+        .slick-arrow.slick-prev{
+            // right: calc((100vw - 1195px)/2 + 60px);
+            bottom: 112px;
+            border: 0;
+        }
+        .slick-arrow.slick-next{
+            // right: calc((100vw - 1195px)/2);
+            bottom: 112px;
+            border: 0;
+        }
+        .slick-dots{
+            bottom: 112px;
+            // left: 2.5%;
+        }
+    }
+    .section-clients{
+        .slick-arrow.slick-prev{
+            right: 60px;
+            bottom: 112px;
+            border: 0;
+        }
+        .slick-arrow.slick-next{
+            right: 0;
+            bottom: 112px;
+            border: 0;
+        }
+        .slick-dots{
+            bottom: 112px;
+            left: 0;
+        }
     }
 }
